@@ -1,23 +1,17 @@
 name: Main
-
-
 on:
   workflow_dispatch:
   schedule:
-    - cron: "10 12 * * *"
-  
+    - cron: '0 * * * *'
 jobs:
   run:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install OS deps for headless Chromium
         run: |
           sudo apt-get update
@@ -34,10 +28,8 @@ jobs:
             libgbm1 \
             libpango-1.0-0 \
             libasound2t64
-
       - name: Install Python dependencies
         run: pip install -r requirements.txt
-
       - name: Run monitor
         # point pyppeteer at the system Chrome rather than downloading its own
         env:
