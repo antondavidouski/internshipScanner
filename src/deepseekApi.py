@@ -62,7 +62,6 @@ def ask_deepseek(prompt):
 
 
 def promptBuilder(csvText):
-    date = f"The date today is 19 august 2024"
-    # date = f"The date today is {datetime.date.today()}"
+    date = f"The date today is {datetime.date.today()}"
     prompt = f"Todays date: {date}. The csv file is as follows:\n\n{csvText}"
     return prompt
